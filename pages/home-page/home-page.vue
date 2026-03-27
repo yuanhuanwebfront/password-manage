@@ -1,6 +1,6 @@
 <template>
   <view class="page">
-    <view class="toolbar">
+    <!-- <view class="toolbar">
       <input
         v-model="keyword"
         class="search-input"
@@ -15,11 +15,15 @@
       </view>
     </view>
 
-    <category-tabs v-model="activeCategoryId" :tabs="categoryTabs" />
+    <category-tabs v-model="activeCategoryId" :tabs="categoryTabs" /> -->
 
-    <view class="actions">
-      <t-button size="small" variant="outline" @tap="goSettings">设置</t-button>
-      <t-button size="small" theme="primary" @tap="goAddPage">新增</t-button>
+    <view class="fab-actions">
+      <view class="fab-item" @tap="goAddPage">
+        <t-icon name="add-circle" size="64rpx" />
+      </view>
+      <view class="fab-item" @tap="goSettings">
+        <t-icon name="setting" size="55rpx" />
+      </view>
     </view>
 
     <scroll-view scroll-y class="list-area">
@@ -135,11 +139,27 @@ onShow(async () => {
   color: #374151;
 }
 
-.actions {
-  margin: 8px 0 12px;
+.fab-actions {
+  position: fixed;
+  right: 28rpx;
+  bottom: 48rpx;
+  z-index: 20;
   display: flex;
-  justify-content: flex-end;
-  gap: 12rpx;
+  flex-direction: column;
+  align-items: center;
+  gap: 18rpx;
+}
+
+.fab-item {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 999rpx;
+  background: #ffffff;
+  box-shadow: 0 10rpx 24rpx rgba(0, 0, 0, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
 }
 
 .list-area {

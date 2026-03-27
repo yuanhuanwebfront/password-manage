@@ -10,7 +10,7 @@
       </view>
       <text class="favorite">{{ item.is_favorite ? '★' : '☆' }}</text>
     </view>
-    <view class="footer">
+    <!-- <view class="footer">
       <text class="category">{{ item.categoryName || '未分类' }}</text>
       <view class="tags">
         <text
@@ -21,7 +21,7 @@
           {{ tag }}
         </text>
       </view>
-    </view>
+    </view> -->
   </view>
 </template>
 
@@ -39,8 +39,8 @@ const emit = defineEmits(['click'])
 <style scoped>
 .card {
   background-color: #ffffff;
-  border-radius: 16rpx;
-  padding: 24rpx;
+  border-radius: 32rpx;
+  padding: 36rpx 24rpx;
   margin-bottom: 16px;
   box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.05);
 }
@@ -55,10 +55,11 @@ const emit = defineEmits(['click'])
   display: flex;
   align-items: center;
   gap: 16rpx;
+  margin-right: 16rpx;
 }
 
 .icon {
-  font-size: 40rpx;
+  font-size: 60rpx;
 }
 
 .meta {

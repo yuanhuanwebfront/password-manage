@@ -174,7 +174,7 @@ onLoad(async (query) => {
 .label {
   display: block;
   margin-bottom: 18rpx;
-  font-size: 42rpx;
+  font-size: 32rpx;
   color: #374151;
 }
 

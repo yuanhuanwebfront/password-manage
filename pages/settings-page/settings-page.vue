@@ -202,9 +202,14 @@ onShow(() => {
   background: #f9fafb;
   border: 1px solid #e5e7eb;
   border-radius: 12rpx;
-  padding: 14rpx;
+  min-height: 88rpx;
+  height: 88rpx;
+  padding: 0 18rpx;
+  line-height: 88rpx;
   box-sizing: border-box;
   font-size: 26rpx;
+  display: flex;
+  align-items: center;
 }
 
 .textarea {
@@ -227,6 +232,7 @@ onShow(() => {
 
 .flex {
   flex: 1;
+  min-width: 0;
 }
 
 .category-row {
