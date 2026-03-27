@@ -1,4 +1,5 @@
 import App from './App'
+import '@tdesign/uniapp/common/style/theme/index.css';
 
 // #ifndef VUE3
 import Vue from 'vue'

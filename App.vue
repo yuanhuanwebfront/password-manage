@@ -1,17 +1,13 @@
 <script>
-	export default {
-		onLaunch: function() {
-			console.log('App Launch')
-		},
-		onShow: function() {
-			console.log('App Show')
-		},
-		onHide: function() {
-			console.log('App Hide')
-		}
-	}
+export default {
+  onLaunch() {},
+  onShow() {},
+  onHide() {}
+}
 </script>
 
 <style>
-	/*每个页面公共css */
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Segoe UI', sans-serif;
+}
 </style>

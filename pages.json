@@ -1,17 +1,47 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
-			"path": "pages/index/index",
+			"path": "pages/lock-page/lock-page",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "应用锁",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/home-page/home-page",
+			"style": {
+				"navigationBarTitleText": "密码管理"
+			}
+		},
+		{
+			"path": "pages/edit-page/edit-page",
+			"style": {
+				"navigationBarTitleText": "新增/编辑"
+			}
+		},
+		{
+			"path": "pages/detail-page/detail-page",
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
+		},
+		{
+			"path": "pages/settings-page/settings-page",
+			"style": {
+				"navigationBarTitleText": "设置"
 			}
 		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "本地密码管理",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},
-	"uniIdRouter": {}
+	"uniIdRouter": {},
+	"easycom": {
+    "custom": {
+      "^t-(.*)": "@tdesign/uniapp/$1/$1.vue"
+    }
+  }
 }
