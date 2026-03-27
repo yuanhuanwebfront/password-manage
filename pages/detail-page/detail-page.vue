@@ -13,7 +13,7 @@
         <text class="key">账号</text>
         <view class="value-row">
           <text class="value">{{ detail.account }}</text>
-          <t-button size="small" variant="outline" @tap="copyText(detail.account)">复制</t-button>
+          <t-button size="extra-small" class="text-action-btn" variant="text" theme="primary" @tap="copyText(detail.account)">复制</t-button>
         </view>
       </view>
 
@@ -21,10 +21,10 @@
         <text class="key">密码</text>
         <view class="value-row">
           <text class="value">{{ showPassword ? detail.password : '••••••••' }}</text>
-          <t-button size="small" variant="outline" @tap="showPassword = !showPassword">
+          <t-button size="extra-small" class="text-action-btn" variant="text" theme="primary" @tap="showPassword = !showPassword">
             {{ showPassword ? '隐藏' : '显示' }}
           </t-button>
-          <t-button size="small" variant="outline" @tap="copyText(detail.password)">复制</t-button>
+          <t-button size="extra-small" class="text-action-btn" variant="text" theme="primary" @tap="copyText(detail.password)">复制</t-button>
         </view>
       </view>
 
@@ -169,20 +169,27 @@ onShow(() => {
 }
 
 .line {
-  margin-bottom: 14rpx;
+  margin-bottom: 20rpx;
+  padding: 18rpx 0;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.line:last-of-type {
+  border-bottom: 0;
 }
 
 .key {
   display: block;
   margin-bottom: 8rpx;
   color: #374151;
-  font-size: 24rpx;
+  font-size: 32rpx;
+  font-weight: 700;
 }
 
 .value-row {
   display: flex;
   align-items: center;
-  gap: 12rpx;
+  gap: 6rpx;
 }
 
 .value {
@@ -193,6 +200,7 @@ onShow(() => {
 .link {
   color: #2563eb;
   word-break: break-all;
+  font-size: 26rpx;
 }
 
 .tag-list {
@@ -216,6 +224,15 @@ onShow(() => {
 .footer {
   margin-top: 18rpx;
   display: flex;
-  gap: 14rpx;
+  justify-content: flex-start;
+}
+
+.text-action-btn {
+  --td-button-extra-small-padding-horizontal: 4rpx;
+  --td-button-extra-small-height: 48rpx;
+  margin: 0;
+  padding: 0;
+  font-size: 30rpx;
+  margin-left: 24rpx;
 }
 </style>

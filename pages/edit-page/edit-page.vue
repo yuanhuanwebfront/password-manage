@@ -11,7 +11,7 @@
         <text class="label">账号 *</text>
         <view class="row">
           <input v-model="form.account" class="input flex" placeholder="账号" />
-          <t-button size="small" variant="outline" @tap="copyText(form.account)">复制</t-button>
+          <t-button size="extra-small" class="text-action-btn" variant="text" theme="primary" @tap="copyText(form.account)">复制</t-button>
         </view>
         <text v-if="errors.account" class="error">{{ errors.account }}</text>
       </view>
@@ -25,10 +25,10 @@
             :password="!showPassword"
             placeholder="密码"
           />
-          <t-button size="small" variant="outline" @tap="showPassword = !showPassword">
+          <t-button size="extra-small" class="text-action-btn" variant="text" theme="primary" @tap="showPassword = !showPassword">
             {{ showPassword ? '隐藏' : '显示' }}
           </t-button>
-          <t-button size="small" variant="outline" @tap="copyText(form.password)">复制</t-button>
+          <t-button size="extra-small" class="text-action-btn" variant="text" theme="primary" @tap="copyText(form.password)">复制</t-button>
         </view>
         <text v-if="errors.password" class="error">{{ errors.password }}</text>
       </view>
@@ -48,11 +48,6 @@
         <picker :range="categoryOptions" range-key="name" :value="categoryIndex" @change="handleCategoryChange">
           <view class="picker">{{ categoryOptions[categoryIndex]?.name || '请选择分类' }}</view>
         </picker>
-      </view>
-
-      <view class="field">
-        <text class="label">标签（英文逗号分隔）</text>
-        <input v-model="tagsText" class="input" placeholder="工作,邮箱,备用" />
       </view>
 
       <view class="field">
@@ -76,7 +71,6 @@ const itemId = ref(0)
 const categoryOptions = ref([{ id: 0, name: '未分类' }])
 const categoryIndex = ref(0)
 const showPassword = ref(false)
-const tagsText = ref('')
 const errors = ref({})
 
 const form = ref({
@@ -128,15 +122,11 @@ async function loadDetail(id) {
     categoryId: Number(detail.category_id || 0),
     tags: Array.isArray(detail.tags) ? detail.tags : []
   }
-  tagsText.value = form.value.tags.join(',')
   syncCategoryIndex()
 }
 
 async function submitForm() {
-  form.value.tags = tagsText.value
-    .split(',')
-    .map((item) => item.trim())
-    .filter((item) => !!item)
+  form.value.tags = []
   const newErrors = validatePasswordItemForm(form.value)
   errors.value = newErrors
   if (Object.keys(newErrors).length) {
@@ -183,8 +173,8 @@ onLoad(async (query) => {
 
 .label {
   display: block;
-  margin-bottom: 10rpx;
-  font-size: 24rpx;
+  margin-bottom: 18rpx;
+  font-size: 42rpx;
   color: #374151;
 }
 
@@ -194,14 +184,21 @@ onLoad(async (query) => {
   background: #f9fafb;
   border: 1px solid #e5e7eb;
   border-radius: 12rpx;
-  padding: 14rpx;
+  min-height: 88rpx;
+  height: 88rpx;
+  padding: 0 18rpx;
+  line-height: 88rpx;
   box-sizing: border-box;
   font-size: 26rpx;
+  display: flex;
+  align-items: center;
 }
 
 .textarea {
   width: 100%;
-  min-height: 160rpx;
+  min-height: 112rpx;
+  height: 112rpx;
+  line-height: 1.4;
   background: #f9fafb;
   border: 1px solid #e5e7eb;
   border-radius: 12rpx;
@@ -213,16 +210,21 @@ onLoad(async (query) => {
 .row {
   display: flex;
   align-items: center;
-  gap: 12rpx;
+  gap: 8rpx;
 }
 
 .flex {
   flex: 1;
+  min-width: 0;
 }
 
 .error {
   margin-top: 6rpx;
   color: #dc2626;
   font-size: 22rpx;
+}
+
+.text-action-btn {
+  --td-button-extra-small-padding-horizontal: 8rpx;
 }
 </style>
